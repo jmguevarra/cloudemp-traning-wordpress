@@ -1,0 +1,16 @@
+{
+  "name": "twentytwentyfive-child",
+  "version": "1.0.0",
+  "description": "Traning ",
+  "main": "index.js",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start"
+  },
+  "author": "Jaime Guevarra Jr",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "^30.8.1",
+    "@babel/code-frame": "7.26.2"
+  }
+}
