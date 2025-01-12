@@ -2,8 +2,21 @@
 
 //Add scripts
 function child_theme_scripts() {
-    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/style.css', ['parent-style']);
+    // Get the child theme directory URI and parent
+    $child_theme_uri = get_stylesheet_directory_uri();
+    $parent_theme_uri = get_template_directory_uri();
+
+    wp_enqueue_style('parent-style', $parent_theme_uri . '/style.css');
+    wp_enqueue_style('child-style', $child_theme_uri . '/style.css', ['parent-style']);
+
+    // Enqueue the Webpack-generated JavaScript file
+    wp_enqueue_script(
+        'child-theme-bundle', 
+        $child_theme_uri . '/dist/bundle.js', 
+        [], 
+        filemtime(get_stylesheet_directory() . '/dist/bundle.js'), 
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'child_theme_scripts');
 
