@@ -2,9 +2,9 @@ import { useContext } from "react";
 import WPContext from "../context/wp-context";
 import SlickBasicSlider from "../components/sliders/slick-basic";
 import { CarPost } from "../types/carpost";
-import FeaturedCars from "../components/featured-cars";
-import LastestCars from "../components/lastest-cars";
-import CarListings from "../components/car-listings";
+import FeaturedCars from "../sections/featured-cars";
+import LastestCars from "../sections/lastest-cars";
+import CarListings from "../sections/car-listings";
 
 const Home = () => {
   const { cars, page } = useContext(WPContext);
