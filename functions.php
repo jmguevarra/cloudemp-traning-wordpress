@@ -8,7 +8,7 @@ function child_theme_scripts() {
 
     wp_enqueue_style('parent-style', $parent_theme_uri . '/style.css');
     wp_enqueue_style('child-style', $child_theme_uri . '/style.css', ['parent-style']);
-    
+
 }
 add_action('wp_enqueue_scripts', 'child_theme_scripts');
 
@@ -23,6 +23,7 @@ function register_cars_post_type() {
         'public' => true,
         'has_archive' => true,
         'show_in_rest' => true,
+        'rest_base' => 'cars',
         'supports' => ['title', 'editor', 'thumbnail', 'custom-fields'],
         'rewrite' => ['slug' => 'cars'],
         'menu_icon' => 'dashicons-car'

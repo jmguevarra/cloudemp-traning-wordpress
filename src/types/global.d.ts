@@ -8,7 +8,7 @@ declare global {
   
     // Declare WPData as a global variable
     const WPData: WPData;
-  }
+}
   
-  export {};
+export {};
   
