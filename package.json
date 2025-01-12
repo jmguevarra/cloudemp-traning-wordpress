@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "Traning ",
   "author": "Jaime Guevarra Jr",
-  
   "main": "./src/index.tsx",
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve --mode development --open"
   },
-
   "license": "ISC",
   "devDependencies": {
     "@babel/preset-react": "^7.26.3",
+    "@types/react-dom": "^19.0.2",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "postcss": "^8.4.49",
@@ -23,6 +22,7 @@
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-slick": "^0.30.3",
     "typescript": "^5.7.3"
   }
 }
