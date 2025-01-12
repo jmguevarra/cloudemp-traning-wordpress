@@ -3,6 +3,8 @@ import WPContext from "../context/wp-context";
 import SlickBasicSlider from "../components/sliders/slick-basic";
 import { CarPost } from "../types/carpost";
 import FeaturedCars from "../components/featured-cars";
+import LastestCars from "../components/lastest-cars";
+import CarListings from "../components/car-listings";
 
 const Home = () => {
   const { cars, page } = useContext(WPContext);
@@ -17,6 +19,8 @@ const Home = () => {
     <>
       <SlickBasicSlider images={imagesLinks}></SlickBasicSlider>;
       <FeaturedCars></FeaturedCars>
+      <LastestCars></LastestCars>
+      <CarListings></CarListings>
     </>
   );
 };

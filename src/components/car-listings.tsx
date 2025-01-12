@@ -2,26 +2,24 @@ import { useContext } from "react";
 import WPContext from "../context/wp-context";
 import { CarPost } from "../types/carpost";
 
-const FeaturedCars = () => {
+const CarListings = () => {
   const { cars } = useContext(WPContext);
-  const featuredCars =
-    cars?.filter((car: CarPost) => car.acf.car_post_options.is_featured) || [];
 
   return (
     <div>
-      <h2>Featured Cars</h2>
-      {featuredCars.length > 0 ? (
-        featuredCars.map((car: CarPost) => (
+      <h2>Car Listings</h2>
+      {cars.length > 0 ? (
+        cars.map((car: CarPost) => (
           <div key={car.id}>
             <h3>{car.title.rendered}</h3>
             <img src={car.featured_image_url} alt={car.title.rendered} />
           </div>
         ))
       ) : (
-        <div>No Featured Cars</div>
+        <div>No Cars Avaliable</div>
       )}
     </div>
   );
 };
 
-export default FeaturedCars;
+export default CarListings;
