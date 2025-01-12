@@ -58,3 +58,5 @@ add_filter('acf/load_field/name=year_of_manufacture', function ($field) {
 
     return $field;
 });
+
+add_theme_support( 'menus' );
