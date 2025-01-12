@@ -1,3 +1,5 @@
+import { IWPMediaObject } from "./iwp-media";
+
 export interface CarPost {
     id: number;
     date: string;
@@ -19,6 +21,7 @@ export interface CarPost {
       protected: boolean;
     };
     featured_media: number;
+    featured_image_url: string,
     template: string;
     meta: {
       _acf_changed: boolean;

@@ -12,6 +12,19 @@ function child_theme_scripts() {
 }
 add_action('wp_enqueue_scripts', 'child_theme_scripts');
 
+//add featured post thunbnails in rest
+add_action('rest_api_init', function () {
+    register_rest_field('cars', 'featured_image_url', [
+        'get_callback' => function ($post) {
+            $image_id = get_post_thumbnail_id($post['id']);
+            $image_url = wp_get_attachment_image_url($image_id, 'full');
+            return $image_url ?: '';
+        },
+        'schema' => null,
+    ]);
+});
+
+
 
 //Register a Car custom post
 function register_cars_post_type() {
