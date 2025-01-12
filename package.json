@@ -2,15 +2,27 @@
   "name": "twentytwentyfive-child",
   "version": "1.0.0",
   "description": "Traning ",
-  "main": "index.js",
-  "scripts": {
-    "build": "wp-scripts build",
-    "start": "wp-scripts start"
-  },
   "author": "Jaime Guevarra Jr",
+  
+  "main": "./src/index.tsx",
+  "scripts": {
+    "build": "webpack --mode production",
+    "start": "webpack serve --mode development --open"
+  },
+
   "license": "ISC",
   "devDependencies": {
-    "@wordpress/scripts": "^30.8.1",
-    "@babel/code-frame": "7.26.2"
+    "@babel/preset-react": "^7.26.3",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.7.3"
   }
 }
