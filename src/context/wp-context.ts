@@ -3,9 +3,12 @@ import { Dispatch, SetStateAction } from "react";
 import { CarPost } from "../types/carpost";
 import { Notifier } from "../types/notifier";
 import { MESSAGE_STATUSES } from "../enums/statuses.enum";
+import { PagePostType } from "../types/page-post-type";
 
 //initialize interface property
 interface props {
+    page: PagePostType, //current page
+    setPage: Dispatch<SetStateAction<PagePostType>>,
     cars: CarPost[],
     setCars: Dispatch<SetStateAction<CarPost[]>>,
     notifier: Notifier,
@@ -14,6 +17,8 @@ interface props {
   
 //create context and export it
 const WPContext = React.createContext<props>({
+    page: {} as PagePostType,
+    setPage: ()=> {},
     cars: [],
     setCars: ()=> {},
     notifier: {

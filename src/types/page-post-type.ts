@@ -1,4 +1,4 @@
-export interface CarPost {
+export interface PagePostType {
     id: number;
     date: string;
     date_gmt: string;
@@ -18,34 +18,33 @@ export interface CarPost {
       rendered: string;
       protected: boolean;
     };
+    excerpt: {
+      rendered: string;
+      protected: boolean;
+    };
+    author: number;
     featured_media: number;
-    featured_image_url: string,
+    parent: number;
+    menu_order: number;
+    comment_status: string;
+    ping_status: string;
     template: string;
     meta: {
       _acf_changed: boolean;
+      footnotes: string;
     };
     class_list: string[];
     acf: {
-      specifications: {
-        price: number;
-        color: string;
-        engine_size: string;
-        no_of_seats: number;
-        year_of_manufacture: string;
-      };
-      promos: {
-        on_sale: boolean;
-        discount: number;
-      };
-      car_post_options: {
-        is_featured: boolean;
+      page_settings: {
+        no_of_featured_cars: number;
+        no_of_lastest_cars: number;
+        no_of_cars_in_hero_carousel: number;
       };
     };
-    car_gallery_image_field: string[];
     _links: {
       self: Array<{
         href: string;
-        targetHints: {
+        targetHints?: {
           allow: string[];
         };
       }>;
@@ -55,8 +54,20 @@ export interface CarPost {
       about: Array<{
         href: string;
       }>;
-      "wp:featuredmedia": Array<{
+      author: Array<{
         embeddable: boolean;
+        href: string;
+      }>;
+      replies: Array<{
+        embeddable: boolean;
+        href: string;
+      }>;
+      version_history: Array<{
+        count: number;
+        href: string;
+      }>;
+      predecessor_version: Array<{
+        id: number;
         href: string;
       }>;
       "wp:attachment": Array<{
@@ -68,5 +79,5 @@ export interface CarPost {
         templated: boolean;
       }>;
     };
-}
+  }
   
