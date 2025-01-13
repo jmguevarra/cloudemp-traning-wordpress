@@ -7,12 +7,15 @@ import { CarPost } from "./types/carpost";
 import { Notifier } from "./types/notifier";
 import { MESSAGE_STATUSES } from "./enums/statuses.enum";
 import { PagePostType } from "./types/page-post-type";
+import Modal from "./components/popups/modal";
 
 // Main component of the app
 const App: React.FC = () => {
   const [cars, setCars] = useState<CarPost[]>([]);
   const [page, setPage] = useState<PagePostType>({} as PagePostType);
   const [notifier, setNotifier] = useState<Notifier>({} as Notifier);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState<React.ReactNode>(null);
 
   //get Current page object
   useEffect(() => {
@@ -75,9 +78,14 @@ const App: React.FC = () => {
         setCars,
         notifier,
         setNotifier,
+        isModalOpen,
+        setIsModalOpen,
+        modalContent,
+        setModalContent,
       }}
     >
       <Home></Home>
+      <Modal></Modal>
     </WPContext.Provider>
   );
 };

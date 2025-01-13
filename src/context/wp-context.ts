@@ -12,7 +12,11 @@ interface props {
     cars: CarPost[],
     setCars: Dispatch<SetStateAction<CarPost[]>>,
     notifier: Notifier,
-    setNotifier: Dispatch<SetStateAction<Notifier>>
+    setNotifier: Dispatch<SetStateAction<Notifier>>,
+    isModalOpen: boolean,
+    setIsModalOpen: Dispatch<SetStateAction<boolean>>,
+    modalContent: React.ReactNode,
+    setModalContent: Dispatch<SetStateAction<React.ReactNode>>
 }
   
 //create context and export it
@@ -26,7 +30,12 @@ const WPContext = React.createContext<props>({
         status: MESSAGE_STATUSES.NONE,
         data: []
     },
-    setNotifier: ()=> {}
+    setNotifier: ()=> {},
+    isModalOpen: false,
+    setIsModalOpen: () => {},
+    modalContent: null,
+    setModalContent: () => {}
 });
 
 export default WPContext;
+
