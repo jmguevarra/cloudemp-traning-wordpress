@@ -4,3 +4,8 @@
 	Author: Jaime Guevarra Jr
 	Description: This is for training purposes
 */
+
+
+.wp-site-blocks {
+    overflow: hidden;
+}

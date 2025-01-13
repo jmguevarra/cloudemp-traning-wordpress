@@ -7,7 +7,7 @@ const CarListings = () => {
   const { cars, setIsModalOpen, setModalContent } = useContext(WPContext);
 
   return (
-    <div>
+    <div className="wp-section">
       <h2>Car Listings</h2>
       {cars.length > 0 ? (
         cars.map((car: CarPost) => (

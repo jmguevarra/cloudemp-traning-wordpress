@@ -10,4 +10,8 @@
     .wp-modal-body{
         @apply bg-white p-6 rounded-lg shadow-lg w-96 transition-all transform relative;
     }
+
+    .wp-section{
+        @apply py-14;
+    }
 }

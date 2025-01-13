@@ -10,15 +10,19 @@ const LastestCars = () => {
   );
 
   return (
-    <div>
+    <div className="wp-section">
       <h2>Lastest Cars</h2>
       {lastestCars.length > 0 ? (
-        lastestCars.map((car: CarPost) => (
-          <div key={car.id}>
-            <h3>{car.title.rendered}</h3>
-            <img src={car.featured_image_url} alt={car.title.rendered} />
+        <>
+          <div className="grid grid-col-3 gap-4">
+            {lastestCars.map((car: CarPost) => (
+              <div key={car.id}>
+                <h3>{car.title.rendered}</h3>
+                <img src={car.featured_image_url} alt={car.title.rendered} />
+              </div>
+            ))}
           </div>
-        ))
+        </>
       ) : (
         <div>No Lastest Cars</div>
       )}
