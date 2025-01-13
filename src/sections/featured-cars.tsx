@@ -19,13 +19,13 @@ const FeaturedCars = () => {
           {featuredCars.map((car: CarPost, index: number) => (
             <div key={car.id} className="featured-car">
               <img
-                className="w-full mb-3"
+                className="w-full mb-3 h-60 object-cover object-center"
                 src={car.featured_image_url}
                 alt={car.title.rendered}
               />
               <div className="featured-contet">
                 <h3>{car.title.rendered}</h3>
-                <div>{car.content.rendered}</div>
+                <p>{car.excerpt}</p>
                 <a href={car.link} className={`wp-btn featured-btn-${index}`}>
                   Read More
                 </a>

@@ -65,4 +65,25 @@ add_filter('acf/load_field/name=year_of_manufacture', function ($field) {
     return $field;
 });
 
+
+//adding excerpt in rest
+add_action('rest_api_init', function () {
+    register_rest_field(
+        'cars', // Change 'post' to your custom post type slug if needed
+        'excerpt',
+        [
+            'get_callback' => function ($post) {
+                // Retrieve the excerpt and shorten it to 20 words
+                $excerpt = get_the_excerpt($post['id']);
+                return wp_trim_words($excerpt, 15, '...'); // Adjust the number of words and the "more" string
+            },
+            'schema' => [
+                'description' => __('The shortened post excerpt.'),
+                'type'        => 'string',
+            ],
+        ]
+    );
+});
+
+
 add_theme_support( 'menus' );

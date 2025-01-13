@@ -20,6 +20,7 @@ export interface CarPost {
       rendered: string;
       protected: boolean;
     };
+    excerpt: string
     featured_media: number;
     featured_image_url: string,
     template: string;

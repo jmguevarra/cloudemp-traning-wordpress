@@ -24,7 +24,11 @@ const SlickBasicSlider: React.FC<props> = ({ images }) => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <img src={image} alt={`Slide ${index}`} className="w-full h-auto" />
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className="w-full h-[620px] object-cover"
+            />
           </div>
         ))}
       </Slider>
