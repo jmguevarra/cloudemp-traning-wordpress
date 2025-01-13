@@ -13,12 +13,9 @@ const Modal = () => {
   };
 
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50"
-      onClick={onClose}
-    >
+    <div className="wp-modal-overlay" onClick={onClose}>
       <div
-        className={`bg-white p-6 rounded-lg shadow-lg w-96 transition-all transform relative ${
+        className={`wp-modal-body ${
           isModalOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-10"
         }`}
       >

@@ -17,7 +17,7 @@ const Home = () => {
 
   return (
     <>
-      <SlickBasicSlider images={imagesLinks}></SlickBasicSlider>;
+      <SlickBasicSlider images={imagesLinks}></SlickBasicSlider>
       <FeaturedCars></FeaturedCars>
       <LastestCars></LastestCars>
       <CarListings></CarListings>
