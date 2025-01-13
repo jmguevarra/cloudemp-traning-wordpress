@@ -71,23 +71,25 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <WPContext.Provider
-      value={{
-        page,
-        setPage,
-        cars,
-        setCars,
-        notifier,
-        setNotifier,
-        isModalOpen,
-        setIsModalOpen,
-        modalContent,
-        setModalContent,
-      }}
-    >
-      <Home></Home>
-      <Modal></Modal>
-    </WPContext.Provider>
+    <div className="wp-byd-wrapper dark">
+      <WPContext.Provider
+        value={{
+          page,
+          setPage,
+          cars,
+          setCars,
+          notifier,
+          setNotifier,
+          isModalOpen,
+          setIsModalOpen,
+          modalContent,
+          setModalContent,
+        }}
+      >
+        <Home></Home>
+        <Modal></Modal>
+      </WPContext.Provider>
+    </div>
   );
 };
 

@@ -11,13 +11,23 @@ const Home = () => {
   const { no_of_cars_in_hero_carousel } = page.acf?.page_settings ?? [];
 
   //get the first 4 Car images
-  const imagesLinks = cars
-    .slice(0, no_of_cars_in_hero_carousel)
-    .map((car: CarPost) => car.featured_image_url);
+  const contents: {
+    title: string;
+    model: string;
+    imageLink: string;
+    pageUrl: string;
+  }[] = cars.slice(0, no_of_cars_in_hero_carousel).map((car: CarPost) => {
+    return {
+      title: car.title.rendered,
+      model: car.acf.specifications.model,
+      imageLink: car.featured_image_url.replace(/\\/g, ""),
+      pageUrl: car.link,
+    };
+  });
 
   return (
     <>
-      <SlickBasicSlider images={imagesLinks}></SlickBasicSlider>
+      <SlickBasicSlider contents={contents}></SlickBasicSlider>
       <FeaturedCars></FeaturedCars>
       <LastestCars></LastestCars>
       <CarListings></CarListings>
