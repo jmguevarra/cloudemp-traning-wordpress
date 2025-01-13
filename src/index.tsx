@@ -58,6 +58,7 @@ const App: React.FC = () => {
         return response.json();
       })
       .then((data) => {
+        console.log(data);
         setCars(data);
       })
       .catch((err) => {

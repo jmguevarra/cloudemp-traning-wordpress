@@ -14,4 +14,8 @@
     .wp-section{
         @apply py-14;
     }
+
+    .wp-btn{
+        @apply text-blue-600 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 font-medium transition duration-200;
+    }
 }

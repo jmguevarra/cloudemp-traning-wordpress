@@ -7,24 +7,33 @@ const FeaturedCars = () => {
   const featuredCars =
     cars?.filter((car: CarPost) => car.acf.car_post_options.is_featured) || [];
 
+  if (cars.length < 1) {
+    return null;
+  }
+
   return (
     <div className="wp-section featured-section">
-      <h2 className="mb-6">Featured Cars</h2>
-      {featuredCars.length > 0 ? (
-        featuredCars.map((car: CarPost) => (
-          <div className="featured-cars grid grid-cols-3">
+      <div className="container mx-auto">
+        <h2 className="mb-6">Featured Cars</h2>
+        <div className="featured-cars grid grid-cols-3 gap-4">
+          {featuredCars.map((car: CarPost, index: number) => (
             <div key={car.id} className="featured-car">
-              <img src={car.featured_image_url} alt={car.title.rendered} />
+              <img
+                className="w-full mb-3"
+                src={car.featured_image_url}
+                alt={car.title.rendered}
+              />
               <div className="featured-contet">
                 <h3>{car.title.rendered}</h3>
                 <div>{car.content.rendered}</div>
+                <a href={car.link} className={`wp-btn featured-btn-${index}`}>
+                  Read More
+                </a>
               </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <div>No Featured Cars</div>
-      )}
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
