@@ -1,3 +1,5 @@
+import { ICarDetails } from "./car-detail";
+
 export interface CarPost {
     id: number;
     date: string;
@@ -25,22 +27,7 @@ export interface CarPost {
       _acf_changed: boolean;
     };
     class_list: string[];
-    acf: {
-      specifications: {
-        price: number;
-        color: string;
-        engine_size: string;
-        no_of_seats: number;
-        year_of_manufacture: string;
-      };
-      promos: {
-        on_sale: boolean;
-        discount: number;
-      };
-      car_post_options: {
-        is_featured: boolean;
-      };
-    };
+    acf: ICarDetails;
     car_gallery_image_field: string[];
     _links: {
       self: Array<{
