@@ -87,3 +87,41 @@ add_action('rest_api_init', function () {
 
 
 add_theme_support( 'menus' );
+function register_menus_api_endpoint() {
+    register_rest_route( 'guevfs-api/v1', '/menus', array(
+        'methods' => 'GET',
+        'callback' => 'get_menus',
+        'permission_callback' => '__return_true', // This allows public access, modify if needed
+    ));
+}
+
+add_action( 'rest_api_init', 'register_menus_api_endpoint' );
+
+function get_menus() {
+    $menus = wp_get_nav_menus(); // Get all menus
+
+    $menu_data = array();
+
+    foreach ( $menus as $menu ) {
+        $menu_items = wp_get_nav_menu_items( $menu->term_id ); // Get items for the menu
+
+        $items_data = array();
+        foreach ( $menu_items as $item ) {
+            $items_data[] = array(
+                'id' => $item->ID,
+                'title' => $item->title,
+                'url' => $item->url,
+                'menu_order' => $item->menu_order,
+            );
+        }
+
+        $menu_data[] = array(
+            'id' => $menu->term_id,
+            'name' => $menu->name,
+            'slug' => $menu->slug,
+            'items' => $items_data,
+        );
+    }
+
+    return new WP_REST_Response( $menu_data, 200 );
+}

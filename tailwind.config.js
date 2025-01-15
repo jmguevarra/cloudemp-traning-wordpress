@@ -1,7 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
-  important: true,
   content: [
     './*.php',
     './**/*.php',
@@ -11,8 +9,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        darkBg: '#2d2d2d',
-        darkText: '#fff',
         primary: '#3be4b4', 
         secondary: '#2d2d2d', 
       },
@@ -22,20 +18,21 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            maxWidth: '100ch',
             h1: {
               fontSize: '2.25rem',
               fontWeight: '700',
-              color: 'var(--color-primary)',
+              color: 'theme("colors.primary")',
             },
             h2: {
               fontSize: '1.875rem',
               fontWeight: '700',
-              color: 'var(--color-primary)',
+              color: 'theme("colors.primary")',
             },
             h3: {
               fontSize: '1.5rem',
               fontWeight: '600',
-              color: 'var(--color-primary)',
+              color: 'theme("colors.primary")',
             },
             p: {
               fontSize: '1rem',
@@ -45,7 +42,7 @@ module.exports = {
             a: {
               padding: '0.25rem 0.5rem',
               lineHeight: '1.4',    
-              backgroundColor: 'var(--color-primary)',
+              backgroundColor: 'theme("colors.primary")',
               color: 'var(--color-secondary)',
               textDecoration: 'none',
               '&:hover': {

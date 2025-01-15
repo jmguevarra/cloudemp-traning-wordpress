@@ -71,7 +71,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="wp-byd-wrapper dark">
+    <div className="wp-byd-wrapper prose">
       <WPContext.Provider
         value={{
           page,
